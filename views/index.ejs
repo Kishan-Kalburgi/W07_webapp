@@ -9,11 +9,13 @@
                     <%= entry.title %>
                 </div>
                 <div class="panel-body">
-                    <%= entry.body %>
+                    <%= entry.content %>
                 </div>
             </div>
             <% }) %>
                 <% } else { %>
-                    No entries! <a href="/new-entry">Add one!</a>
+                    <span>No entries!</span>
+                    <a href="/new-entry">Add one!</a>
+                    
                     <% } %>
                         <% include footer %>

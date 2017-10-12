@@ -4,17 +4,8 @@ var logger = require("morgan")
 var bodyParser = require("body-parser") // simplifies access to request body
 var app = express() // make express app
 var http = require('http').Server(app) // inject app into the server
-// 1 set up the view engine
-// 2 manage our entries
-// 3 set up the logger
-// 4 handle valid GET requests
-// 5 handle valid POST request
-// 6 respond with 404 if a bad URI is requested
-// Listen for an application request on port 8081
-http.listen(8081, function () {
-    console.log('Guestbook app listening on http://127.0.0.1:8081/')
-})
 
+app.use(express.static(__dirname + '/assets'))
 // 1 set up the view engine
 app.set("views", path.resolve(__dirname, "views")) // path to views
 app.set("view engine", "ejs") // specify our view engine
@@ -48,7 +39,8 @@ app.post("/new-entry", function (request, response) {
 app.use(function (request, response) {
     response.status(404).render("404")
 })
-    // Listen for an application request on port 8081 & notify the developer
-    //http.listen(8081, function () {
-    // console.log('Guestbook app listening on http://127.0.0.1:8081/')
-    //})
+//Listen for an application request on port 8081 & notify the developer
+app.listen(8081, function () {
+console.log('Guestbook app listening on http://127.0.0.1:8081/')
+})
+
